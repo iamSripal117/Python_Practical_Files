@@ -1,0 +1,2256 @@
+Example 14:
+
+eval() - 
+
+Scenario 1:
+
+lst=eval(input("Enter math expressions : "))
+print(lst)
+
+Output:
+
+Enter math expressions : [10+26, 19-34, (2+4)*5**2, 13*12]
+[36, -15, 150, 156]
+
+Scenario 2:
+
+lst=eval(input("Enter values : "))
+print(lst)
+
+Output:
+
+Enter values : [19,True,17.2, 'hyd', 26]
+[19, True, 17.2, 'hyd', 26]
+
+Example 15: Write a program to create empty list.
+	    Input size for the list.
+	    Input elements in the list.
+	    Find sum of elements in list and display sum?
+
+Method 1:			
+
+lst=[]
+n=int(input("Enter size for the list : "))
+
+for ind in range(n):
+    obj=int(input("Enter object for list : "))
+    lst.append(obj)
+
+s=0
+for ele in lst:
+    s=s+ele			# sum with direct objects
+
+print("Sum is...",s)
+
+Method 2:
+
+lst=[]
+n=int(input("Enter size for the list : "))
+
+for ind in range(n):
+    obj=int(input("Enter object for list : "))
+    lst.append(obj)
+
+s=0
+for ind in range(n):
+    s=s+lst[ind]		# sum with objects using index positions
+
+print("Sum is...",s)
+
+Method 3:
+
+lst=[]
+n=int(input("Enter size for the list : "))
+
+for ind in range(n):
+    obj=int(input("Enter object for list : "))
+    lst.append(obj)
+
+s=sum(lst)			# sum of objects using sum()
+
+print("Sum is...",s)
+
+Example 16: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Sort the objects in list in ascending order using bubble sort technique.
+	    Display sorted list?
+
+Bubble Sort
+
+1. It is also called as Exchange/Adjacent/Sinking sort.
+2. It will compare adjacent elements till the least or the biggest element is not bubbled up (depending on sorting type).
+3. It will compare elements based on passes.
+4. At each pass it will discard one element from comparision.
+5. At n-1th pass it will produce the sorted list.
+
+
+list of elements (input): 26, 18, 32, 15, 22, 10
+
+pass-0
+
+26, 18, 32, 15, 22, 10	(26>18)	T
+18, 26, 32, 15, 22, 10	(26>32) F
+18, 26, 32, 15, 22, 10	(32>15) T
+18, 26, 15, 32, 22, 10 	(32>22) T
+18, 26, 15, 22, 32, 10 	(32>10) T
+18, 26, 15, 22, 10, 32
+
+Pass-1
+
+18, 26, 15, 22, 10, 32	(18>26) F
+18, 26, 15, 22, 10, 32	(26>15) T
+18, 15, 26, 22, 10, 32	(26>22) T
+18, 15, 22, 26, 10, 32	(26>10) T
+18, 15, 22, 10, 26, 32
+
+Pass-2
+
+18, 15, 22, 10, 26, 32	(18>15) T
+15, 18, 22, 10, 26, 32	(18>22) F
+15, 18, 22, 10, 26, 32	(22>10) T
+15, 18, 10, 22, 26, 32
+
+Pass-3
+
+15, 18, 10, 22, 26, 32	(15>18) F
+15, 18, 10, 22, 26, 32	(18>10) T
+15, 10, 18, 22, 26, 32
+
+Pass-4
+
+15, 10, 18, 22, 26, 32	(15>10) T
+10, 15, 18, 22, 26, 32	finally at n-1th pass objects(elements) are sorted
+
+
+lst=[]
+n=int(input("Enter size for the list : ")) 
+
+for ind in range(n):
+    obj=int(input("Enter object for list : "))
+    lst.append(obj)
+
+for p in range(n-1):
+    for a in range(n-p-1):
+        if lst[a]>lst[a+1]:
+            temp=lst[a]
+            lst[a]=lst[a+1]
+            lst[a+1]=temp
+        
+print("Objects after sorting are")
+for ind in range(n):
+    print(lst[ind],end=' ')
+print()
+
+Example 17: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Find the mean of objects in a list?
+
+Example 18: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Display frequency of each object in a list?
+
+Example 19: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Separate duplicate objects and unique objects into 2 different lists?
+
+Example 20: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Search for a required object in a list. If found display its index position else display object not found (Linear Search Technique).(without using index())?
+
+Example 21: Write a program to create empty list.
+	    Input size of the list.
+	    Input objects into list.
+	    Find the biggest and smallest object in a list?
+
+Nested List
+
+1. A list which is created inside another list.
+2. It will arrange the data in rows and columns.
+3. At each row columns can be of discrete length.
+4. Access to nested list can be in rows and can be with individual objects.
+
+Example 1:
+
+>>> lst1=[10, 20]
+>>> lst2=[28, 15, 24]
+>>> lst=[lst1, lst2]
+
+	(or)
+
+>>> lst=[
+	  [34, 17],
+	  [14, 23, 15]
+	]
+>>> len(lst)
+2
+>>> len(lst[0])
+2
+>>> len(lst[1])
+3
+>>> for r in range(len(lst)):			# row access
+    print(lst[r])
+
+>>> for r in range(len(lst)):			# access to individual objects
+	for c in range(len(lst[r])):
+		print(lst[r][c],end=' ')
+	print()
+
+
+		Working with shallow copy and deep copy using copy module
+
+copy module provides functions to implement shallow and deep copy.
+It need to be imported.
+It provides 2 functions;
+	a. copy()	-	shallow copy
+	b. deepcopy()	-	deep copy
+
+copy()
+	This function will copy the reference of original nested list into another variable.
+	Any changes are made thru one variable will provide the same thru another variable.
+
+>>> lst1=[[19, 27],[23, 16, 32]]
+>>> import copy
+>>> lst2=copy.copy(lst1)
+>>> print(lst1)
+[[19, 27], [23, 16, 32]]
+>>> print(lst2)
+[[19, 27], [23, 16, 32]]
+>>> lst2[0][1]=77
+>>> print(lst1)
+[[19, 77], [23, 16, 32]]
+>>> print(lst2)
+[[19, 77], [23, 16, 32]]
+>>> id(lst1[0])
+>>> id(lst2[0])
+>>> id(lst1[1])
+>>> id(lst2[1])
+
+	shallow copy - refer to .png file
+
+deepcopy()
+	This function will create a separate memory to copy the original list into it.
+	Any changes are made thru one variable of a nested list will not reflect into another nested list.
+
+>>> lst1=[[19, 27],[23, 16, 32]]
+>>> lst2=copy.deepcopy(lst1)
+>>> print(lst1)
+[[19, 27], [23, 16, 32]]
+>>> print(lst2)
+[[19, 27], [23, 16, 32]]
+>>> lst2[0][1]=77
+>>> print(lst1)
+[[19, 27], [23, 16, 32]]
+>>> print(lst2)
+[[19, 77], [23, 16, 32]]
+>>> id(lst1[0])
+3143174331456
+>>> id(lst2[0])
+3143174146496
+>>> id(lst1[1])
+3143174333056
+>>> id(lst2[1])
+3143174331840
+
+	deepcopy - refer to .png file
+
+***
+Example 2: Write a program to create empty list.
+	   Input size for number of rows.
+	   Create empty list for columns.
+	   Input size for number of columns.
+	   Input objects dynamically into list created for columns.
+	   Add that list to nested list.
+	   Display nested list?
+
+nlst=[]
+rows=int(input("Enter number of rows : ")) 
+
+for r in range(rows):
+    lst=[]
+    print("Enter number of columns for",r,"row : ",end='')
+    cols=int(input())
+    for c in range(cols):
+        print("Enter value for",r,"row",c,"column : ",end='')
+        obj=int(input())
+        lst.append(obj)
+    nlst.append(lst)
+
+for r in range(rows):
+    for c in range(cols):
+        print(nlst[r][c],end=' ')
+    print()
+
+
+***
+Example 3: Write a program to create empty list.
+	   Input size for rows.
+	   Create empty list for columns.
+	   Input size for columns.
+	   Input objects dynamically into list created for columns.
+	   Add that list to nested list.
+	   Find the trace of a matrix by checking the validation?
+
+nlst=[]
+rows=int(input("Enter number of rows : ")) 
+cols=int(input("Enter number of columns : "))
+
+if rows!=cols:
+    print("Trace of matrix not possible")
+else:
+    for r in range(rows):
+        lst=[]
+        for c in range(cols):
+            print("Enter value for",r,"row",c,"column : ",end='')
+            obj=int(input())
+            lst.append(obj)
+        nlst.append(lst)
+
+    s=0
+    for r in range(rows):
+        for c in range(cols):
+            if r==c:
+                s=s+nlst[r][c]
+            print(nlst[r][c],end=' ')
+        print()
+
+    print("Trace of matrix : ",s)
+
+
+				Tuple Data Structure / Tuple Sequence
+
+1. It is a process of grouping individual entities into a single entity set.
+2. Insertion order is preserved.
+3. Duplicates are allowed.
+4. It is represented by paranthesis ( )
+5. It is immutable (read only). Hence it will not allow to perform manipulations.
+6. It will allow to access the tuple using index positions and also thru slicing.
+7. In order to perform manipulations over tuple then it has to be converted to list and after performing manipulations on list, again it should be converted to tuple.
+8. It will allow to store homegenous and heterogenous type objects into it.
+
+Example 1:
+
+>>> t=()
+>>> type(t)
+<class 'tuple'>
+>>> t.__class__
+<class 'tuple'>
+>>> print(t)
+()
+	(or)
+
+>>> t=tuple()
+>>> type(t)
+<class 'tuple'>
+>>> t.__class__
+<class 'tuple'>
+>>> print(t)
+()
+
+Example 2: Access thru index positions
+
+>>> t=(18, 26, 15, 32, 19, 44)
+>>> for ind in range(len(t)):
+...     print(t[ind],end=' ')
+    
+18 26 15 32 19 44 
+
+Example 3: Access thru slicing
+
+>>> t=(18, 26, 15, 32, 19, 44)
+>>> t[:5]
+(18, 26, 15, 32, 19)
+>>> t[::-1]
+(44, 19, 32, 15, 26, 18)
+>>> t[2:4]
+(15, 32)
+>>> t[1:5:2]
+(26, 32)
+
+Example 4: converting tuple to list and vice versa
+
+>>> t=(18, 26, 15, 32, 19, 44)
+>>> lst=list(t)
+>>> lst.append(55)
+>>> t=tuple(lst)
+>>> print(t)
+(18, 26, 15, 32, 19, 44, 55)
+
+Example 5: Packing and Unpacking objects
+
+Packing - Grouping individual objects into a single entity (tuple)
+
+>>> a=15
+>>> b=24
+>>> c=18
+>>> d=12
+>>> t=a, b, c, d
+>>> type(t)
+<class 'tuple'>
+>>> print(t)
+(15, 24, 18, 12)
+
+Unpacking - Objects from single entity (tuple) separating into individual objects.
+
+>>> x, y, z, p=t
+>>> print(x, y, z, p)
+15 24 18 12
+
+Differences between list and tuple sequences
+
+		List						Tuple
+
+	1. It is mutable.				1. It is immutable.
+	2. It is represented by []			2. It is represented by ()
+	3. It supports to perform operations		3. It does not support to perform operations
+	4. Operations can be performed directly		4. Operations can be performed indirectly
+
+Example 6: Tuple with dissimilar objects
+
+>>> t=(19, 2.1, True, 'Python', 27, 4.1, 19, True)
+>>> type(t)
+<class 'tuple'>
+>>> print(t)
+
+				Set Data Structure / Set Sequence
+
+1. It is a process of grouping individual objects into a single entity of unique objects.
+2. Insertion order is not preserved.
+3. Duplicates are not allowed.
+4. Supports to store same type and different type objects.
+5. It is represented with {} with atleast one object in it.
+6. It will not allow to index and slice the objects stored in it.
+7. It is mutable.
+8. If {} are used without object in it then by default it becomes dictionary.
+
+Example 1:
+
+>>> s={}
+>>> type(s)
+<class 'dict'>
+>>> s={17}
+>>> type(s)
+<class 'set'>
+>>> s=set()
+>>> type(s)
+<class 'set'>
+>>> print(s)
+set()
+
+Example 2:
+
+>>> s={18, 14, 72, 14, 35, 27, 14, 18, 33}
+>>> type(s)
+<class 'set'>
+>>> print(s)
+{33, 18, 35, 72, 27, 14}
+
+Example 3:
+
+add()		-	It will add a new object into existing set.
+remove()	-	deletes object if exists else provides KeyError.
+discard()	-	deletes object if exists else ignores object if does not exist.
+pop()		-	deletes object in set from left to right.
+update()	-	adds multiple objects into set.
+
+>>> s={17, 34, 10, 32, 18, 10}
+>>> id(s)
+2165369190912
+>>> print(s)
+{32, 17, 34, 18, 10}
+>>> s.add(44)
+>>> print(s)
+{32, 17, 34, 18, 10, 44}
+>>> s.add(15)
+>>> print(s)
+{32, 17, 34, 18, 10, 44, 15}
+>>> s.update('hyd')
+>>> print(s)
+{10, 'y', 15, 17, 18, 'd', 32, 34, 'h', 44}
+>>> s.remove(18)
+>>> print(s)
+{10, 'y', 15, 17, 'd', 32, 34, 'h', 44}
+>>> s.remove(55)	#KeyError
+>>> s.discard(32)
+>>> print(s)
+{10, 'y', 15, 17, 'd', 34, 'h', 44}
+>>> s.discard(55)
+>>> s.pop()
+10
+>>> print(s)
+{'y', 15, 17, 'd', 34, 'h', 44}
+>>> 
+
+Example 4:
+
+union()		-	extracts all objects from 2 sets excluding duplicates.
+		-	It is also implemented by |
+
+intersection()	-	extracts common objects from 2 sets.
+		-	It is also implemented by &
+
+difference()	-	extracts objects from set1 after subtracting the objects that are found 
+			in set2.
+		-	It is also implemented by -
+
+symmetric_difference()	-	extracts unique objects from 2 sets.
+			-	It is also implemented by ^
+
+difference_update()	-	Used to remove objects from one set that are present in another set.
+			-	It does not return a new set.
+			-	It will modify the original set.
+
+>>> s1={45, 93, 17, 24}
+>>> s2={14, 73, 93, 45}
+>>> s1.union(s2)
+{73, 45, 14, 17, 24, 93}
+>>> s1|s2
+{73, 45, 14, 17, 24, 93}
+>>> s1.intersection(s2)
+{45, 93}
+>>> s1&s2
+{45, 93}
+>>> s1.difference(s2)
+{24, 17}
+>>> s1-s2
+{24, 17}
+>>> s2.difference(s1)
+{73, 14}
+>>> s2-s1
+{73, 14}
+>>> s1.symmetric_difference(s2)
+{73, 14, 17, 24}
+>>> s1^s2
+{73, 14, 17, 24}
+>>> s1.difference_update(s2)
+>>> s1
+{17, 24}
+>>> 
+
+Example 5:
+
+isdisjoint()	-	It will check whether sets containing common objects or not.
+		-	If does not find common objects then returns True else returns False.
+
+>>> s1={19, 32, 15}
+>>> s2={56, 28, 77}
+>>> s3={32, 10}
+>>> s1.isdisjoint(s2)
+True
+>>> s1.isdisjoint(s3)
+False
+
+Example 6: 
+
+issubset()	-	It will check whether all objects of one set are present in another set.
+		-	Returns True if it is found sub set else returns False.
+
+>>> s1={12, 32}
+>>> s2={12, 32, 14, 41}
+>>> s1.issubset(s2)			
+True
+>>> s1.add(55)
+>>> s1.issubset(s2)
+False
+
+issuperset()	-	It will check whether all objects of one set are present in another set.
+
+>>> s1={12, 32, 14, 41}
+>>> s2={12, 32}
+>>> s1.issuperset(s2)			
+True
+
+
+				Frozenset Data Structure / Sequence
+
+1. It is similar to set data structure being differed at one point i.e. "set is mutable and frozenset is immutable".
+2. set supports to perform operations whereas frozenset does not.
+3. frozenset will support to perform operations like union, intersection, difference, ....etc.
+4. It is created using a function.
+
+Example:
+
+>>> s={18, 31, 25, 10, 14}
+>>> fs=frozenset(s)
+>>> type(s)
+<class 'set'>
+>>> type(fs)
+<class 'frozenset'>
+>>> print(fs)
+frozenset({18, 25, 10, 14, 31})
+
+
+				bytes data structure / sequence
+
+1. This data structure will group objects as members of array.
+2. Byte object should be in a range of 0 to 256.
+3. It is immutable (read only)
+4. Access to bytes can be thru index positions.
+5. Bytes sequence cant be accessed directly.
+6. Bytes can be created using list, tuple, string,....etc.
+7. When bytes are created using string then it should be preceeded by b (it stores unicodes)
+8. Duplicates are allowed.
+
+
+Example 1:
+
+>>> lst=[19, 24, 11, 20, 17]
+>>> b=bytes(lst)
+>>> type(lst)
+<class 'list'>
+>>> type(b)
+<class 'bytes'>
+>>> b[2]
+11
+>>> b[2]=66	#TypeError
+>>> len(b)
+5
+>>> for ind in range(len(b)):
+...     print(b[ind],end=' ')
+
+19 24 11 20 17 
+>>> for obj in b:
+	print(b,end=' ')
+
+19 24 11 20 17 
+
+Example 2: 
+
+>>> x=7
+>>> b=bytes(x)		Creates 7 locations in byte array and stores min value of byte into it i.e. 0
+>>> type(x)
+<class 'int'>
+>>> type(b)
+<class 'bytes'>
+>>> len(b)
+7
+>>> for obj in b:
+...     print(obj,end=' ')
+    
+0 0 0 0 0 0 0 
+
+Example 3: bytes thru string
+
+>>> s=b'naresh'
+>>> b=bytes(s)
+>>> for obj in b:
+...     print(obj,end=' ')
+... 
+...     
+110 97 114 101 115 104 
+>>> for obj in b:
+...     print(chr(obj),end=' ')
+... 
+...     
+n a r e s h 
+
+
+				bytearray data structure/sequence
+
+1. It is similar to bytes data structure being differed at one point i.e. it is mutable.
+2. Min and max object into byte array is 0 to 256.
+3. Duplicates are allowed.
+4. bytearray variable cant be used directly for printing.
+5. It can be accessed thru index positions.
+6. It can be created thru list, tuple, string, .....etc.
+
+Example 1:
+
+>>> lst=[12, 18, 45, 29, 17, 12, 40]
+>>> ba=bytearray(lst)
+>>> type(lst)
+<class 'list'>
+>>> type(ba)
+<class 'bytearray'>
+>>> ba[2]
+45
+>>> ba[2]=99
+>>> for obj in ba:
+...     print(obj,end=' ')
+... 
+...     
+12 18 99 29 17 12 40 
+
+Example 2:
+
+>>> s=b'shareef'
+>>> ba=bytearray(s)
+>>> type(s)
+<class 'bytes'>
+>>> type(ba)
+<class 'bytearray'>
+>>> len(ba)
+7
+>>> for ind in range(len(ba)):
+...     print(chr(ba[ind]),end=' ')
+   
+s h a r e e f 
+
+
+				Dictionary Data Structure
+
+1. Dictionary provides a different way of data structure compared to list, tuple, set data structures.
+2. It represents data structure in the form of key, value pairs.
+3. Insertion order is preserved.
+4. Duplicate keys are not allowed but duplicate values are allowed.
+5. Key and value can be homogenous and heterogenous.
+6. It is mutable.
+7. It is represented by {}
+8. It is dynamic.
+9. It cant be indexed and sliced.
+10. Empty dictionary can be created using dict().
+
+
+Example 1:
+
+>>> d={}
+>>> type(d)
+<class 'dict'>
+>>> print(d)
+{}
+
+     (OR)
+
+>>> d=dict()
+>>> type(d)
+<class 'dict'>
+>>> print(d)
+{}
+
+Example 2:
+
+>>> d={1:'one',2:'two',3:'three'}
+>>> type(d)
+<class 'dict'>
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three'}
+
+Example 3:
+
+>>> d={1:'one',2:'two',3:'three',2:'four'}
+>>> print(d)
+{1: 'one', 2: 'four', 3: 'three'}
+
+Example 4:
+
+>>> d={1:'one',2:'two',3:'three',4:'two'}
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three', 4: 'two'}
+>>> d.clear()	# deletes all key,value pairs and makes dict empty
+>>> print(d)
+{}
+>>> del d
+>>> print(d)	# NameError
+
+Example 5:
+
+>>> d={1:'one',2.4:88, 3:True, 'gender':'male', 4:5.2}
+>>> type(d)
+<class 'dict'>
+>>> print(d)
+{1: 'one', 2.4: 88, 3: True, 'gender': 'male', 4: 5.2}
+>>> d[2.4]
+88
+>>> d[4]
+5.2
+>>> d['gender']
+'male'
+>>> d[3]
+True
+
+Example 6:
+
+>>> d={1:'one',2:'two',3:'three',4:'four'}
+>>> type(d)
+<class 'dict'>
+>>> d.keys()
+dict_keys([1, 2, 3, 4])
+>>> d.values()
+dict_values(['one', 'two', 'three', 'four'])
+>>> d.items()
+dict_items([(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')])
+>>> for k in d.keys():
+...     print(k)
+
+1
+2
+3
+4
+>>> for v in d.values():
+...     print(v)
+
+one
+two
+three
+four
+>>> for k, v in d.items():
+...     print(k,'->',v)
+
+1 -> one
+2 -> two
+3 -> three
+4 -> four
+>>> 
+
+Example 7: 
+
+>>> d={1: 'one', 2.4: 88, 3: True, 'gender': 'male', 4: 5.2}
+>>> type(d)
+<class 'dict'>
+>>> for k, v in d.items():
+...     print(k,'->',v)
+
+1 -> one
+2.4 -> 88
+3 -> True
+gender -> male
+4 -> 5.2
+>>> d.pop(3)	# will delete the specified key (if exists) from dictionary else provides KeyError
+True
+>>> print(d)
+{1: 'one', 2.4: 88, 'gender': 'male', 4: 5.2}
+
+
+Example 8: update()	- 	a dictionary can be added to another dictionary
+
+>>> d1={1:'One',2:'Two',3:'Three'}
+>>> d2={4:'Four',5:'Five'}
+>>> d1.update(d2)
+>>> print(d1)
+{1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five'}
+
+Example 9: get()  - extracts value of a specified key, if exists.
+		  - if does not exist does not provide any error.
+		  - if does not exist we can provide a default value for that key.
+
+>>> d={1:'one',2:'two',3:'three'}
+>>> type(d)
+<class 'dict'>
+>>> d.get(2)
+'two'
+>>> d.get(4)
+>>> d.get(4,'four')
+'four'
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three'}
+
+Example 10: pop() and popitem()
+
+	popitem()	-	returns key, value from dictionary which ever is last inserted
+			-	and also deletes that key, value pair
+
+	pop(key)	-	returns value of specified key (if exists) else returns KeyError.
+			-	and also deletes that key, value pair
+
+>>> d.popitem()
+(3, 'three')
+>>> print(d)
+{1: 'one', 2: 'two'}
+>>> d.pop(1)
+'one'
+>>> print(d)
+{2: 'two'}
+>>> d.pop(7)	# KeyError
+
+Example 11: setdefault()	- extracts value of a specified key (if exists)
+				- supports to add key, value pair (if specified key does not exist)
+
+>>> d={1:'one',2:'two',3:'three'}
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three'}
+>>> d.setdefault(4,'four')
+'four'
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three', 4: 'four'}
+>>> d.setdefault(2)
+'two'
+>>> d.setdefault(2,'naresh')
+'two'
+>>> print(d)
+{1: 'one', 2: 'two', 3: 'three', 4: 'four'}
+
+Example 12: fromkeys()	-  creates a new dictionary with keys and a default value for all the keys
+
+>>> keys=['a','b','c']
+>>> d=d.fromkeys(keys, 0)	# thru list new dictionary is created with a common value to each key
+>>> print(d)
+{'a': 0, 'b': 0, 'c': 0}
+>>> type(keys)
+<class 'list'>
+>>> type(d)
+<class 'dict'>
+>>> d['b']=66
+>>> print(d)
+{'a': 0, 'b': 66, 'c': 0}
+
+	(or)
+
+keys=['a','b','c']
+d={}
+d=d.fromkeys(keys, 0)
+print(d)
+for k in d.keys():
+    print("Enter value for key ",k," : ",end='')
+    obj=int(input())
+    d[k]=obj
+
+print("Dictionary after dynamic inputs to different keys")
+print(d)
+
+Example 13: Dictionary with keys followed by multiple values
+
+>>> d={'enames':['Smith','Allen','Jones'],
+...    'jobs':['Clerk','Manager','Salesman'],
+...    'salary':[1700, 2500, 1300]
+...    }
+>>> d['enames']
+['Smith', 'Allen', 'Jones']
+>>> d['enames'][1]
+'Allen'
+>>> d['salary']
+[1700, 2500, 1300]
+>>> for k in d.keys():
+...     print(k)
+   
+enames
+jobs
+salary
+
+>>> for k in d.keys():
+...     print('key =',k)
+...     for v in d[k]:
+...         print('\t',v,end='')
+...     print()
+     
+key = enames
+	 Smith	 Allen	 Jones
+key = jobs
+	 Clerk	 Manager	 Salesman
+key = salary
+	 1700	 2500	 1300
+
+Example 14: Nested Dictionary
+
+>>> d={
+...     'empid':1001,
+...     'ename':'Shareef',
+...     'salary':17000.22,
+...     'company_info':{
+...         'cname':'Renintech',
+...         'location':'jhills',
+...         'city':'cyberabad',
+...         'state':'telangana'
+...         }
+...     }
+>>> d['empid']
+1001
+>>> d['ename']
+'Shareef'
+>>> d['salary']
+17000.22
+>>> d['company_info']
+{'cname': 'Renintech', 'location': 'jhills', 'city': 'cyberabad', 'state': 'telangana'}
+>>> d['company_info']['city']
+'cyberabad'
+
+Note: Access the above dictionary using for loop
+
+Example 15: Nested Dictionary
+
+>>> d={
+...     2024:{'Qrt1':1500,'Qrt2':1000,'Qrt3':1200,'Qrt4':2300},
+...     2025:{'Qrt1':3600,'Qrt2':2400,'Qrt3':1500,'Qrt4':3000}
+...     }
+>>> type(d)
+<class 'dict'>
+>>> print(d)
+{2024: {'Qrt1': 1500, 'Qrt2': 1000, 'Qrt3': 1200, 'Qrt4': 2300}, 2025: {'Qrt1': 3600, 'Qrt2': 2400, 'Qrt3': 1500, 'Qrt4': 3000}}
+>>> print(d[2024])
+{'Qrt1': 1500, 'Qrt2': 1000, 'Qrt3': 1200, 'Qrt4': 2300}
+>>> print(d[2024]['Qrt3'])
+1200
+
+Note: Access the above dictionary using for loop
+
+
+				Comprehensions (One-Liner For Loops)
+
+1. For loop can be compressed into one line expressions called comprehension.
+2. Python supports to create different types of comprehensions for different iterable types;
+	a. List comprehension
+	b. Set comprehension
+	c. Dictionary comprehension
+	d. Generator comprehension
+3. Each comprehension is similar to one another.
+
+
+List Comprehension
+
+1. In Python, we can use list comprehension to shorten a for loop over a list.
+2. The result of a list comprehension is a new list of values.
+3. It is compact way of using for loops.
+
+Syntax:	variable = [action(item) for item in list if condition]
+
+Example 1: Create a list of +ve and -ve values. Separate all +ve values into a new list.
+
+	Expanded form						Compact form
+
+lst1=[18,-5,-9,12,-4,22,17,-66]				lst1=[18,-5,-9,12,-4,22,17,-66]
+lst2=[]							lst2=[obj for obj in lst1 if obj>0]
+for obj in lst1:					print(lst2)
+    if obj>0:
+        lst2.append(obj)
+
+print(lst2)
+
+Example 2: Write a program to input a string. Extract consonents of a string into another string var?
+
+	Expanded form						Compact form
+
+s1=input("Enter any string : ")				s1=input("Enter any string : ")
+s2=''							s2=[ch for ch in s1 if ch not in "aeiou"]
+for ch in s1:						print("Consonents in string are ",s2)
+    if ch not in "aeiou":
+        s2=s2+ch
+
+print("Consonents in string are :",s2)
+
+Example 3: Write a program to input a string with spaces. Convert every word to upper case along with length of each string?
+
+s1=input("Enter any string : ")
+res=[(w.upper(), len(w))for w in s1.split()]
+print(res)
+
+Example 4: Write a program with comprehension using nested for loop?
+
+res=[i+j for i in 'abc' for j in 'def']
+print(res)
+
+Example 5: Write a program to create 2 lists and multiply objects of those lists?
+
+lst1=[12, 10, 15]
+lst2=[15, 13, 19]
+res=[x*y for x in lst1 for y in lst2]
+print(res)
+
+Example 6: Write a program to check each digit of a range for even or odd. If even increment by 1 else provide same value?
+
+res=[(i%2==0) and i+1 or i for i in range(1,6)]
+print(res)
+
+
+Dictionary Comprehension
+
+1. Python has compact form thru "for" loop for dictionary and it is called dictionary comprehension.
+2. It contains key, value pairs, which can be accessed thru comprehension.
+
+Example:
+
+d={'a':1,'b':2,'c':3,'d':4,'e':5}
+res=[{k:v*v}for k,v in d.items()]
+print(res)
+
+Set Comprehension
+
+	Python has compact form thru "for" loop for set sequence and it is called set comprehension.
+
+Example:
+
+s={12, 15, 18, 24, 13, 38}
+res={obj%2==0 and obj for obj in s}
+print(type(s))
+print(type(res))
+print(res)
+
+Output:
+
+<class 'set'>
+<class 'set'>
+{False, 38, 12, 18, 24} 
+
+
+					Iterables & Iterator
+
+1. Iterable object implements a special method called __iter__().
+2. In Python, iterator object contains data with element in iterable. It also supports how to extract next element.
+3. An iterator provides a special method called __next__() to get the next element.
+4. If any sequence provides a method called __iter__() then it is iterable.
+5. dir() - This function will provide the operations that can be performed over objects stored in var.
+
+Example 1:
+
+>>> lst=[12, 18, 43, 17, 21]
+>>> ito=lst.__iter__()	(or)	ito=iter(lst)
+>>> type(lst)
+<class 'list'>
+>>> type(ito)
+<class 'list_iterator'>
+>>> print(ito)
+<list_iterator object at 0x0000014AD14C96F0>
+>>> ito.__next__()
+12
+>>> ito.__next__()
+18
+>>> ito.__next__()
+43
+>>> ito.__next__()
+17
+>>> ito.__next__()
+21
+>>> ito.__next__()	#Error - StopIteration
+
+Example 2:
+
+>>> lst=[12, 18, 43, 17, 21]
+>>> ito=lst.__iter__()
+>>> for obj in ito:
+...     print(obj)
+
+12
+18
+43
+17
+21
+
+
+						Functions
+
+1. Define Function?
+	Function is defined as, "self contained program, which returns one or more values".
+					(or)
+	When group of statements need to be executed together then they should be enclosed by creating a function.
+
+2. Classification of functions;
+	a. built-in functions
+	b. user defined functions
+
+3. Built-in functions 
+	Functions provided by python software.
+	These are also called as predefined functions.
+	print()
+	input()
+	pow()
+	id()
+	iter()
+	round() ......etc.
+
+4. User defined functions
+	These functions are created by user/developer.
+	These functions are also called customized functions.
+
+5. Advantages of user defined functions;
+	a. Code reusability.
+	b. Code readability.
+	c. Code extensibility.
+	d. Error detection and modification is quite easy.
+
+6. Components of functions;
+	Functions are dependent on 2 components;
+	a. Function body or Definition
+	b. Function call
+
+7. Function body is created in Python using "def" keyword.
+
+	def func_name():
+	   ''' documentation '''
+	   statements
+
+8. Code written in function body will be executed only when we call a function.
+
+	func_name()
+
+9. Code reusability - Writing a code for once and using it for any number of times.
+   Code readability - Process of splitting a large application program into small blocks, which
+		      enhances readability.
+   Code extensibility - It is a process of increasing or decreasing the code.
+   
+10. Depending on the requirement of a program, various categories of arguments can be created in a function.
+
+11. In Python Functions always work with bottom-up approach.
+
+12. Function can be called for execution for any number of times.
+
+13. A function which calls other functions for execution such a function is called "calling function".
+    A function which has been called by other function for execution such a function is called 
+    "called function".
+ 
+14. After executing all the statements of a called function control automatically returns back to respective calling function.
+
+
+Example 1: Prog16.py
+
+def testing(): # called to display
+    print("In testing fn")
+    print("Last line of testing fn")
+    
+def display():  # calling to testing and called to show 
+    print("In display fn")
+    print("2nd line of display fn")
+    print("Last line of display fn")
+    testing()
+    print("return to display")
+
+def show(): # calling function 
+    print("In show fn")
+    print("2nd line of show fn")
+    print("Last line of show fn")
+    display()
+    print("Return to show")
+
+show()
+
+
+Local Variable
+
+1. A variable created inside a function is called local variable.
+2. A variable created as argument in function definition is also a local variable.
+3. Scope of a local variable is works within that block.
+4. Local variable created in one block the same can also be created in other blocks.
+
+Categories of arguments
+
+1. Positional or required or input arguments
+2. Optional arguments
+3. Named arguments
+4. Variable Length arguments
+
+What is an argument?
+	Argument is a variable, which is specified at function call and function body.
+	Arguments specified at function call  -  Original or Actual or sending arguments.
+	Arguments specified at function body  -  Formal or receiving arguments.
+
+	Sending arguments can be variables, literals and math expressions.
+	Receiving arguments can be only variables.
+	No. of sending arguments should be equal to no. of receiving arguments.
+
+Example 2: Write a program to input 2 values. Find its sum thru user defined functions?
+
+def display(a, b, c):
+    print("Sum of",a,"and",b,"is",c)
+
+def calc(x, y):
+    z=x+y
+    display(x, y, z)
+
+def inp_data():
+    a=int(input("Enter a value : "))
+    b=int(input("Enter b value : "))
+    calc(a, b)
+
+inp_data()
+
+1. Positional or required or input arguments
+	a. Formal arguments created at function definition will act as required arguments.
+	b. The references available in sending arguments will be stored at formal required arguments.
+
+Example 3: Write a program to input n value thru one function and display mathematical table of that number thru another function?
+
+def math_tab(x):
+    for i in range(1, 11):
+        print(x,'*',i,'=',x*i)
+
+def inp_data():
+    n=int(input("Enter n value : "))
+    math_tab(n)
+
+inp_data()
+
+
+return
+1. It is a keyword.
+2. It can return one or more references from called function to calling function.
+3. It terminates function.
+4. It can return thru variable, literal and math expression.
+5. When multiple references are returned from called function to calling function they can be stored separately or can be stored as tuple.
+
+
+Example 4:
+
+def calc(x, y): # called function
+    z=x+y
+    return z
+
+    
+def inp_data(): # calling function
+    a=int(input("Enter a value : "))
+    b=int(input("Enter b value : "))
+    res=calc(a, b)		|	print("Sum is",calc(a,b))	# function cascading
+    print("Sum is",res)		|						function call inside 
+    									  	another function
+inp_data()
+
+Example 5: 
+
+
+def calc(x, y): # called function
+    s=x+y
+    d=x-y
+    p=x*y
+    q=x/y
+    r=x%y
+    return s, d, p, q, r
+
+    
+def inp_data(): # calling function
+    a=int(input("Enter a value : "))
+    b=int(input("Enter b value : "))
+    r1, r2, r3, r4, r5=calc(a, b)
+    print("Sum is",r1)
+    print("Diff is",r2)
+    print("Product is",r3)
+    print("Quotient is",r4)
+    print("Remainder is",r5)
+    
+inp_data()
+
+
+		(or)
+
+
+def calc(x, y): # called function
+    s=x+y
+    d=x-y
+    p=x*y
+    q=x/y
+    r=x%y
+    return s, d, p, q, r
+
+    
+def inp_data(): # calling function
+    a=int(input("Enter a value : "))
+    b=int(input("Enter b value : "))
+    res=calc(a, b)		|	print(calc(a, b))		
+    print(type(res))
+    print(res)
+    for obj in res:
+        print(obj)
+
+        
+inp_data()
+
+
+Optional Arguments (or) Default Arguments
+
+1. Object(value) can be directly specified at formal argument (receiving argument) at function body.
+2. When default argument is created at function body, at function call object to that argument can be skipped.
+3. At function call if object is provided for a default argument then it will overwrite the object of default argument.
+4. Non default arguments cant be followed to default arguments (which means default arguments should be specified always at last in the list of formal arguments).
+5. Multiple default arguments can be created at function body.
+
+Example 1:
+
+def display(a, b=33):	# a is non default argument(required argument) and b is default argument
+    print("In display fn")
+    print("a =",a,"b =",b)
+
+
+display(17)
+display(10, 20)
+
+Example 2:
+
+def display(a=29, b=33):
+    print("In display fn")
+    print("a =",a,"b =",b)
+
+display()
+display(17)
+display(10, 20)
+
+Example 3:
+
+def display(a=29, b):
+    print("In display fn")
+    print("a =",a,"b =",b)
+
+Error - Parameter without a default follows parameter with a default.
+
+
+Named / Keyword Arguments
+
+	At function call objects can be directly specified for the formal parameters with their names.
+	At function call objects can be in random providing each object with name of formal parameter.
+
+Example:
+
+def display(empid, ename, job, salary, deptname):
+    print("Employ Id :",empid)
+    print("Employ Name :",ename)
+    print("Employ Job :", job)
+    print("Employ Salary :",salary)
+    print("Department Name :", deptname)
+
+display(ename="Shareef",job="Manager",empid=178212,deptname="Sales",salary=22475.22)
+
+
+Variable Length Parameters
+
+1. At function body (definition) if a formal parameter is created with * then by default it becomes a tuple sequence.
+2. It can store one or more objects of same or different types.
+3. It is an optional parameter(which means at function call we can skip the objects for format parameter)
+4. The advantage of creating variable length parameter is, "function can be called with different number of arguments".
+
+Example 1:
+
+def display(*a):
+    print("In display fn", type(a))
+    for obj in a:
+        print(obj,end=' ')
+    print()
+    
+
+display(28, 44, 15)
+display(10)
+display()
+display(88, 57, 29, 38, 11)
+display(10, 20)
+
+5. If a parameter at function body is created with ** then it becomes dictionary.
+6. The parameter at function body which is created as dictionary requires key, value pairs as arguments at call.
+7. Dictionary parameter at function body is also optional parameter.
+
+Example 2:
+
+def display(**d):
+    print("In display fn", type(d))
+    for k, v in d.items():
+        print(k,'->',v)
+
+
+display(rno=1001,name="naresh",marks=189.22)
+
+
+Global Variable
+
+1. A variable which is created in a script is called global variable.
+2. It is accessible thru out the python script.
+3. It can be accessed at all blocks of a python program but cant be modified at functions.
+4. Global variable and local variable having same name then in that function priority is given to local variable and in other functions priority is given to global variable.
+5. In a function body a variable can be created thru a keyword called "global" and that variable becomes global variable to complete python script.
+6. global keyword will allow to specify name of variable but not the object directly to it.
+7. Object to global variable has to be specified as a separate statement.
+8. global keyword will allow to create multiple global variables.
+9. 
+
+Example 1:
+
+j=44 # Global Variable
+def show():
+    print("In show fn")
+    i=28  # Local variable
+    print("i =",i)
+    #j=j+10	Error - UnboundLocalError
+    print("j =",j)
+
+def display():
+    print("In display fn")
+    print("j =",j)
+
+    
+show()
+display()
+print("In Script Block  - j =",j)
+
+Example 2:
+
+j=44 # Global Variable
+def show():
+    print("In show fn")
+    i=28  # Local variable
+    print("i =",i)
+    j=11  # Local variable
+    print("j =",j)
+
+def display():
+    print("In display fn")
+    print("j =",j)
+
+    
+show()
+display()
+print("In Script Block  - j =",j)
+
+Example 3:
+
+
+j=44 # Global Variable
+def show():
+    print("In show fn")
+    i=28  # Local variable
+    print("i =",i)
+    j=11  # Local variable
+    print("j =",j)
+    global k, n
+    k=55
+    n=99
+    print("k =",k)
+    print("n =",n)
+
+def display():
+    print("In display fn")
+    print("j =",j)
+    print("k =",k)
+    print("n =",n)
+
+    
+show()
+display()
+print("In Script Block - j =",j)
+print("In Script Block - k =",k)
+print("In Script Block - n =",n)
+
+Example 4: Differentiating local and global variable
+
+i=15 # Global variable
+def show():
+    i=27 # Local variable
+    print("Local i =",i)
+    print("Global i =",globals()['i'])
+
+show() 
+
+
+Recursion
+
+1. A function which is being called within itself is called recursion.
+2. In Python a recursive function never enters into infinite process.
+3. A recursive function will repeat till it reaches to a default recursion limit of 1000.
+4. A recursion limit can be customized as well.
+5. In order to check the recursion limit and to change the recursion limit python provides functions thru sys module
+		sys.getrecursionlimit()		-	to get the recursion limit
+		sys.setrecursionlimit(value)	-	to set the recursion limit
+6. A recursive function can be made to work based on the user defined condition.
+
+Example 1: 
+
+import sys
+
+def show():
+    print("In show fn")
+    print("Thank you")
+    show()
+
+print("Default recursion limit :",sys.getrecursionlimit())
+show()
+
+Example 2:
+
+import sys
+
+def show():
+    print("In show fn")
+    print("Thank you")
+    show()
+
+print("Default recursion limit :",sys.getrecursionlimit())
+sys.setrecursionlimit(2000)
+print("Default recursion limit :",sys.getrecursionlimit())
+show()
+
+Example 3: Write a program to input n value. Display factorial of that number using recursion?
+
+def fact(x):
+    if x==1:
+        return 1
+    else:
+        f=x*fact(x-1)
+    return f
+
+n=int(input("Enter n value : "))
+res=fact(n)
+print("Factorial of",n,"is",res)
+
+Note: Working process of this program refer to .png file
+
+Example 4: Write a program to input n value. Find the sum of individual digits of that number using recursion?
+
+Example 5: Write a program to input n value. Display reverse of that number using recursion?
+
+
+Anonymous Functions (Nameless/Unnamed Functions)
+
+1. These functions are created without name.
+2. These functions are created using a keyword called "lambda".
+3. These functions will support to execute one line expressions.
+4. The advantage of creating anonymous function (lambda expression) is to write a function within a line with instant execution.
+
+Syntax:		var = lambda parameters : expression
+				|_ input to anonymous function
+
+Example 1: Write a program to input n value. Display square of that number using anonymous function?
+
+
+s=lambda x: x*x
+
+
+n=int(input("Enter n value : "))
+print("Square of",n,"is",s(n))
+
+Example 2: Write a program to input 2 values. Find its product thru anonymous function?
+
+
+res=lambda x, y: x*y
+
+
+a=int(input("Enter a value : "))
+b=int(input("Enter b value : "))
+print("Product of",a,"and",b,"is",res(a, b))
+
+
+Example 3: Write a program to input 2 values. Find the biggest of 2 values using anonymous function?
+
+big=lambda x, y: x>y and x or y				big=lambda x, y: x if x>y else y
+
+
+a=int(input("Enter a value : "))
+b=int(input("Enter b value : "))
+print("Biggest of",a,"and",b,"is",big(a, b))
+
+Example 4: Write a program to input n value. Display sum of n natural numbers using anonymous function
+
+
+Function Alias
+
+1. It is the other name provided for a function.
+2. When function names in application are provided with lengthy names then alias is created.
+3. Instead of using original function name we can use alias to call a function.
+
+Example:
+
+def display():
+    print("In display func")
+    print("Last line of display func")
+
+
+d=display
+print(id(display))
+print(id(d))
+print(type(display))
+print(type(d))
+d()
+display()
+
+
+Nested Function
+
+1. A function definition created inside another function definition is called nested function.
+2. Nested function cant be called directly for execution.
+3. Nested function will be called for execution thru outer function.
+
+Syntax:
+
+	def func_name1():		Outer Function
+		statements
+		def func_name2():	Nested/Inner Function
+			statements
+		func_name2()		
+
+4. Parameters can be created at outer and inner functions (depending on requirement of application).
+
+Example:
+
+def f1():   # outer function
+    print("In f1 function")
+    print("2nd line of f1 function")
+    def f2():  # Nested function
+        print("In f2 function")
+        print("2nd line of f2 function")
+        print("Last line of f2 function")
+    f2()
+    print("Last line of f1 function")
+    
+f1()
+print("Thank you")
+
+
+Output:
+
+In f1 function
+2nd line of f1 function
+In f2 function
+2nd line of f2 function
+Last line of f2 function
+Last line of f1 function
+Thank you
+
+
+Higher Order Functions
+
+1. A function is called higher order function;
+	a. When a function contains other function names as parameters.
+	b. When a function returns other function name
+2. Higher order functions can be;
+	a. user defined functions
+	b. built-in function
+3. It is a process of operating a function from another function.
+4. Higher order functions that are returned from another function or when they are sent as arguments then they can stored as seqeunce like list, tuple, .....etc.
+
+Example 1:
+
+def show(p):
+    print(type(p))
+    p("In show fn")
+    p("2nd line of show fn")
+    p("Last line of show fn")
+
+show(print)
+print(type(print))
+
+Example 2:
+
+def show(f, n):
+    if n==1:
+        f("In show fn")
+        f("2nd line of show fn")
+        f("Last line of show fn")
+    else:
+        x=int(f("Enter x value : "))
+        print("x =",x)
+
+show(print,1)
+show(input,2)
+
+
+Example 3:
+
+def show():
+    return print
+
+p=show()
+p("Hi!!!!...")
+p("Thank you")
+
+Example 4:
+
+def show():
+    return print, input
+
+f=show()
+f[0](type(f))
+f[0](f)
+f[0]("Hello!!!!")
+x=int(f[1]("Enter x value :"))
+f[0]("x =",x)
+
+
+Example 5:
+
+def show(*f):
+    f[0](type(f))
+    f[0](f)
+    x=int(f[1]("Enter x value : "))
+    f[0]("x =",x)
+
+show(print, input)
+
+Example 6:
+
+def show(fn):
+    print("In show function")
+    def display():  # Nested Function
+        print("In display function")
+        print("2nd line of display function")
+        fn()
+        print("Last line of display function")
+    print("2nd line of show function")
+    return display
+
+def test():
+    print("In test function")
+
+
+d=show(test)
+d()
+print("Thank you")
+
+Output:
+	In show function
+	2nd line of show function
+	In display function
+	2nd line of display function
+	In test function
+	Last line of display function
+	Thank you
+
+
+Built-in higher order functions
+
+1. filter()
+	This function is a higher order function since it takes function name as argument.
+	This function takes input, process that input and returns different output.
+
+	Syntax:	filter(function_name, sequence)
+
+	function_name 	-	can be named function
+			-	can be anonymous function (nameless)
+
+	sequence	-	can be list, tuple, set, .....etc.
+
+
+Example 1: Program to filter a sequence to extract all even numbers?
+
+With Named function				With Anonymous function
+
+def evenodd(n):						lst1=[18, 33, 27, 38, 11, 17]
+    if n%2==0:						lst2=list(filter(lambda n:n%2==0, lst1))
+        return True						print(lst2)
+
+
+lst1=[18, 33, 27, 38, 11, 17]
+lst2=list(filter(evenodd, lst1))
+print(lst2)
+
+Example 2: Program to filter a sequence to extract all +ve numbers?
+
+With Named Function				With Anonymous function
+
+
+def chknumbers(n):					lst1=[18, 33, -27, 38, -11, 17]
+    if n>0:							lst2=list(filter(lambda n:n>0, lst1))
+        return True						print(lst2)
+
+
+lst1=[18, 33, -27, 38, -11, 17]
+lst2=list(filter(chknumbers, lst1))
+print(lst2)
+
+
+map()
+
+1. It is also higher order function since it also takes function name as argument.
+2. It is used to perform operation on every object in a sequence.
+
+	Syntax:	map(function, sequence)
+
+	function can be named function or anonymous function.
+	sequence can be list, tuple, .....etc.
+
+Example 1: Program to square each object of a sequence?
+
+Without map function		With map & named function	with map and anonymous func	
+
+def sq(lst):			def sq(n):			lst1=[8, 6, 9, 3, 4, 7]
+    res=[]			    return n*n			lst2=list(map(lambda n:n*n, lst1)
+    print(type(lst))						print("Original List :",lst1)
+    for obj in lst:						print("Result List :",lst2)
+        res.append(obj*obj)	lst1=[8, 6, 9, 3, 4, 7]
+    return res			lst2=list(map(sq, lst1))
+    				print("Original List :",lst1)
+				print("Result List :",lst2)
+lst1=[8, 6, 9, 3, 4, 7]			
+lst2=sq(lst1)
+print("Original List :",lst1)
+print("Calculate List :",lst2)
+
+Example 2: Write a program to create 2 lists and find the sum of objects using map() and lambda expr?
+
+lst1=[12, 29, 10, 32, 15]
+lst2=[30, 18, 44, 73, 20]
+lst3=list(map(lambda n1, n2:n1+n2, lst1, lst2))
+print(lst1)
+print(lst2)
+print(lst3)
+
+
+reduce()
+
+1. This function will take sequence of values, process those values and reduces to a single value.
+2. This function is provided by a module called "functools" which need to be imported.
+
+Syntax: reduce(function, sequence)
+
+	function	-	named or anonymous
+	sequence	-	list, tuple, .....etc.
+
+Example:
+
+from functools import reduce
+
+lst1=[12, 29, 10, 32, 15, 25, 13]
+res=reduce(lambda n1, n2:n1+n2, lst1)
+print(lst1)
+print("Sum =",res)
+
+
+sorted()
+
+Lambda functions can be used with sorted() to sort objects/elements of an iterable (sequence).
+After sorting the resultant objects will be created as a sequence.
+
+Syntax:	sorted(sequence, function)
+
+	sequence 	-	list, tuple, ....etc.
+	function	-	named or anonymous
+
+Example:
+
+lst=['smith','erum','shareef','paresh','sai']
+slst=sorted(lst, key=lambda s:len(s))
+print(slst)
+
+
+Nested Lambda Functions
+
+1. A lambda function created in another lambda function is called nested lambda function.
+2. It is similar to creating a nested function.
+3. In nested lambda function, 1st outer lambda function need to be called for execution and then inner lambda function should be called for execution.
+
+Example 1: Write a program to find the sum of 3 values using nested lambda functions?
+
+f=lambda a=15, b=24:lambda c:a+b+c
+x=f()
+print("Sum =",x(10))
+
+
+Note 1: 
+	step 1: lambda with no parameter will be executed using f() and it is assigned to x
+	step 2: nested lambda will be executed using x() with an argument to it.
+
+Note 2: Above nested lambda example with named functions
+
+def f():
+    a=15
+    b=24
+    def x(c):
+        return a+b+c
+    res=x(10)
+    return res
+
+res=f()
+print(res)
+
+Example 2: Write a program using nested lambda function to multiple 2 values?
+
+l1=lambda f: lambda s: f*s				l1=lambda f: lambda s: f*s
+l2=l1(12)								print("Product is...", l1(12)(7))
+print("Product is...",l2(7))
+
+Example 3: Write a program using nested lambda functions to find power and sum of 2 calculated expressions.
+
+l1=lambda f: lambda s: f**2 + s**2
+print("Product is...",l1(12)(7))
+
+
+Function Generators
+
+1. It is a special type of function, which returns iterator object with sequence of values.
+2. It works like normal functions being differed at one point i.e. function returns values using return keyword whereas function generator returns values using yield keyword.
+3. return terminates the function whereas yield pauses the function.
+4. yield can return one or more values.
+5. When a function generator is paused by yield keyword, the remaining statements of that function will still continue with the execution process in the next function call.
+6. When multiple values are returned thru yield it is in the form of tuple.
+
+Example 1:
+
+def show():
+    print("In show fn")
+    yield 'hyd'
+    print("Hi!!!....")
+    yield 'ts'
+    yield 'Thank you'
+
+x=show()
+print(type(show))
+print(type(x))
+print(x)
+print(next(x))
+print(next(x))
+print(next(x))
+print(next(x))	# Error - StopIteration
+
+
+Example 2: 
+
+def show():
+    yield 'empname','smith'
+    yield 'job','manager'
+
+x=show()
+print(type(show))
+print(type(x))
+print(x)
+print(next(x))
+print(next(x))
+print(next(x))
+
+Example 3: 
+
+def show(n):
+    i=1
+    while i<=n:
+        yield i
+        i=i+1
+
+x=show(5)
+print(type(show))
+print(type(x))
+print(x)
+for obj in x:
+    print(obj)
+
+
+Function Decorator
+
+1. It is a special function that wraps another function to add additional behaviour or modify without changing the original structure.
+2. These functions are often used;
+	a. logging
+	b. performance measurement
+3. Components of function decorator;
+	a. Original function - It is a base function which performs the core task.
+	b. Function decorator - It Wraps original function and it takes as argument.
+	c. Wrapper function - It is a part of decorator that enhances the behaviour of original func.
+4. Function decorator will take original function as argument and also returns wrapper function.
+5. To invoke a decorator function, function name should be preceeded by @
+6. If a function decorator is specified more than once to original function then 1st decorator will execute only decorator function and it does not take original function as argument and 2nd decorator will execute decorator and wrapper.
+7. Extended function and function decorator will return functions.
+
+Working of Function Decorator;
+
+		Original Function		→			Decorator			→		Wrapper (Python function)	
+										(Python function)
+
+Example 1:
+
+def show(fn): # function decorator
+    print("In show function")
+    def display():  # wrapper function
+        print("In display function")
+        print("2nd line of display function")
+        fn()
+        print("Last line of display function")
+    print("2nd line of show function")
+    return display
+
+@show  # show function is called and takes test function as argument
+def test(): #original function
+    print("In test function")
+
+
+test()
+print("Thank you")
+
+
+Output:
+
+In show function
+2nd line of show function
+In display function
+2nd line of display function
+In test function
+Last line of display function
+Thank you
+
+Example 2:
+
+def deco(fn):
+    def wrap(n):
+        if n=="Shareef":
+            print("Hi!!!!....",n)
+        else:
+            fn(n)
+    return wrap
+
+@deco
+def orig(name):
+    print("Hello!!!...",name)
+
+
+
+orig("Shareef")
+orig("Ahmed")
+orig("Naresh")
+
+Output:
+
+Hi!!!!.... Shareef
+Hello!!!... Ahmed
+Hello!!!... Naresh
+
+Example 3:
+
+
+def ext(fn):													def ext(fn):
+    def chkdivision(a, b):				    							def chkdivision(a, b):
+        print("Dividing",a,"by",b)										if b==0:
+        if b==0:						   										print("cant divide by zero")
+            print("Cant divide the number by zero")						else:
+        else:							   									fn(a, b)
+            return fn(a, b)				    							return chkdivision
+    return chkdivision
+
+
+@ext														@ext
+def div(a, b):												def div(a, b):
+    return a/b						   							print("Division of",a,"and",b,"is",(a/b))
+
+
+print(div(22, 7))												div(22, 7)
+print(div(14, 0))												div(14, 0)
+print(div(5, 2))												div(5, 2)
+
+
+Modules
+
+1. Module is defined as, "collection of variables, functions and classes".
+2. A file created in python with .py extension is a module.
+3. In Python modules are of 2 types;
+	a. Built-in modules	-	Provided by software
+	b. User defined modules	-	Created by developer
+4. Builtin modules need to be imported in the following ways;
+	
+	Syntax 1: import module_name
+	Syntax 2: import module_name as module_alias
+	Syntax 3: from module_name import * / variables, functions, classes
+					(or)
+		  from module_name import * / variable as alias, function as alias,.....etc.
+
+5. The above listed syntaxes can also be applied for user defined modules.
+6. The advantage of creating and linking modules is to split a large application program into small readable and reusable blocks.
+
+Example 1:
+
+Prog23.py (module)
+
+x=29
+
+def show():
+    y=10
+    print("In show function : y=",y)
+
+def display():
+    y=27
+    print("In display function : y=",y)
+    
+Prog24.py (module)
+
+import Prog23				
+
+print("In Prog24 Module")
+Prog23.show()
+Prog23.display()
+print("Prog23 modules : x =", Prog23.x)
+
+	(or)
+
+import Prog23 as p
+
+print("In Prog24 Module")
+p.show()
+p.display()
+print("Prog23 modules : x =", p.x)
+
+	(or)
+
+from Prog23 import show, x
+
+print("In Prog24 Module")
+show()
+#display()	Will be error since it is not imported
+print("Prog23 modules : x =", x)
+
+	(or)
+
+from Prog23 import show as s, x as a
+
+print("In Prog24 Module")
+s()
+print("Prog23 modules : x =", a)
+
+7. If syntax 1 is used for importing a module then all the properties of that module should be used preceeded by module name.
+8. If syntax 2 is used for importing a module then all the properties of that module should be used preceeded by module alias name.
+9. If syntax 3 is used for importing a module then all or specified properties of that module can be used directly (without module name as qualifier). When specific properties of a module are imported they can also be provided with aliases.
+
+Example 2:
+
+Prog25.py
+
+print("From Prog25 Module")
+print("Last line of Prog25 module")
+
+
+Prog26.py
+
+import Prog25
+
+print("From Prog26 module")
+print("Last line of Prog26 module")
+
+	(or)
+
+import Prog25
+import Prog25
+import Prog25
+import Prog25
+
+print("From Prog26 module")
+print("Last line of Prog26 module")
+
+10. import to a module any number of times will still execute the module only for once.
+11. Inorder to execute a module more than once then importlib module should be imported and it provides a function called reload()
+12. Number of times reload() is used those many times a module gets executed.
+13. In Python 2 reload() function was provided by a module called imp
+14. In Python 3 imp module is deprecated to importlib
+
+Prog26.py 
+
+import Prog25
+from importlib import reload
+
+reload(Prog25)
+reload(Prog25)
+reload(Prog25)
+print("From Prog26 module")
+print("Last line of Prog26 module")
+reload(Prog25)
+
+
+dir() / dir(module_name)
+	This function provides information of current working module or imported module.
+	It includes;
+		a. variable names
+		b. function names
+		c. class names
+		d. built-in variables
+
+Example:
+
+import Prog23
+
+x=82
+y=2.4
+
+def f1():
+    z='hyd'
+    print("In f1 function")
+    print("x =",x," y =",y," z =",z)
+
+
+f1()
+print(dir())
+print(dir(Prog23))
+
+
+Built-in variables
+
+1. In python, built-in variables are special variables that are automatically available without importing any module.
+2. They are defined inside the built-in namespace and can be used anywhere in python program and for any number of times.
+3. These variables are special becoz they are provided with 2 underscores before and after a variable.
+4. These variables provide information about a program or an environment.
+5. Following are the built-in variables;
+	__annotations__
+	__builtins__
+	__doc__
+	__file__
+	__loader__
+	__name__
+	__package__
+	__spec__
+
+
+What is a namespace?
+
