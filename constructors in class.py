@@ -4,30 +4,30 @@
             ###PARAMETERLESS CONSTRUCTOR###
 
 ##Example 1: parameterless constructor / default constructor
-
-class Employ:
-   def __init__(self):
-       print("In constructor")
-       self.emp_id= None
-       self.emp_name=None
-       self.emp_sal= None
-       self.annual_sal= None
-   def all_data(self):
-       self.emp_id=int(input("Enter the id:"))
-       self.emp_name =input("Enter thr name:")
-       self.emp_sal =float(input("Enter the sal:"))
-   def calc(self):
-       self.annual_sal=self.emp_sal*12
-
-   def display(self):
-       print(self.emp_id)
-       print(self.emp_name)
-       print(self.emp_sal)
-       print(self.annual_sal)
-e = Employ()
-e.all_data()
-e.calc()
-e.display()
+##
+##class Employ:
+##   def __init__(self):
+##       print("In constructor")
+##       self.emp_id= None
+##       self.emp_name=None
+##       self.emp_sal= None
+##       self.annual_sal= None
+##   def all_data(self):
+##       self.emp_id=int(input("Enter the id:"))
+##       self.emp_name =input("Enter thr name:")
+##       self.emp_sal =float(input("Enter the sal:"))
+##   def calc(self):
+##       self.annual_sal=self.emp_sal*12
+##
+##   def display(self):
+##       print(self.emp_id)
+##       print(self.emp_name)
+##       print(self.emp_sal)
+##       print(self.annual_sal)
+##e = Employ()
+##e.all_data()
+##e.calc()
+##e.display()
 
 
 
@@ -132,6 +132,25 @@ e.display()
 
 ####################   OUTPUT    ####################
 ## No.of times instance repeated is 6
+
+
+
+############Example -4 #############
+
+##WAP to count number of references created for an instance of a class?
+
+import sys
+class Demo:
+    def show(self):
+        print("I am the show method in Demo class")
+d=Demo()
+d1 =d
+d2 = d
+d3 = d
+print(id(d),id(d1),id(d2),id(d3))
+print("No.of referneces created for the instance including default ref is ....",sys.getrefcount(d))
+print("No.of referneces created for the instance excluding default ref is ....",sys.getrefcount(d)-1)
+
 
 
 
