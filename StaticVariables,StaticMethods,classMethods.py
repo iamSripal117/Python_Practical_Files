@@ -43,7 +43,28 @@
 ##print("Static variable variable value is:",Sample.a)
 
 
-############Static Methods###############
+############Static Methods and class methods###############
+
+class Demo:
+    a = 70 #static variable
+
+    @staticmethod  # doesn't need any parameter
+    def show():
+        print("In static show method")
+        Demo.a = Demo.a + 10  #static variiable using class name 
+        
+    @classmethod   # we use cls as parameter and we use (cls)instead of class name to declare a static variable
+    def display(cls):
+        print("In class method")
+        print(type(cls))
+        cls.a = cls.a +10   # classmethod static variable with clas name as "cls"
+        Demo.a = Demo.a +10 
+print(type(Demo))
+d = Demo()
+d.show()
+d.display()
+d.a = d.a +100
+print("Static variable is ....", Demo.a,d.a)
 
 
 

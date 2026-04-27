@@ -173,6 +173,145 @@
 
 
 
+##passing objects from one class to anothe class##
+
+##
+##class Employ:
+##    def __init__(self):
+##        self.Emp_Id = 0
+##        self.Emp_name = ""
+##        self.Emp_sal = 0.0
+##        
+##    def get_info(self):
+##        self.Emp_Id = int(input("enter the id:"))
+##        self.Emp_name = input("enter the name:")
+##        self.Emp_sal = float(input("enter the sal:"))
+##
+##class Personal:
+##    def __init__(self):
+##        self.ann_sal = 0.0
+##    def calc(self,emp):
+##        self.ann_sal= emp.Emp_sal*12
+##        print("Employ ID:",emp.Emp_Id)
+##        print("Employ name:",emp.Emp_name)
+##        print("Employ sal:",emp.Emp_sal)
+##        print("Annual sal:",self.ann_sal)
+##e = Employ()
+##e.get_info()
+##p= Personal()
+##p.calc(e)
+##        
+
+##########OUTPUT############
+################################################enter the id:12
+################################################enter the name:sripal
+################################################enter the sal:24000
+################################################Employ ID: 12
+################################################Employ name: sripal
+################################################Employ sal: 24000.0
+################################################Annual sal: 288000.0
+
+
+
+
+######INNER CLASS (contained object)##########
+##
+##class Company: #outer class
+##    def __init__(self):
+##        self.cname=''
+##    def get_comp_name(self):
+##        self.cname = input("Enter the company name:")
+##    def show_comp_name(self):
+##        print("Company name is :",self.cname)
+##    class Employee:
+##        def __init__(self):
+##            self.ename = ''
+##        def get_ename(self):
+##            self.ename = input("Enter the employee name:")
+##        def show_ename(self):
+##            print("Employee name is :",self.ename)
+##c = Company()
+##s = Company.Employee()
+##c.get_comp_name()
+##s.get_ename()
+##c.show_comp_name()
+##s.show_ename()
+
+####output####
+################################Enter the company name:RSTech
+################################Enter the employee name:Sripal
+################################Company name is : RSTech
+################################Employee name is : Sripal
+
+###### OR ######
+
+##class Company: #outer class
+##    def __init__(self):
+##        self.cname=''
+##    def get_comp_name(self):
+##        self.cname = input("Enter the company name:")
+##        self.e.get_name()
+##    def show_comp_name(self):
+##        print("Company name is :",self.cname)
+##        self.e.show_name()
+##    class Employee:
+##        def __init__(self):
+##            self.ename = ''
+##        def get_ename(self):
+##            self.ename = input("Enter the employee name:")
+##        def show_ename(self):
+##            print("Employee name is :",self.ename)
+##    e = Employee()        
+##c = Company()
+####c.get_comp_name()
+####c.show_comp_name()
+
+##############OUTPUT###########
+####################################Enter the company name:RSTech
+####################################Enter the employee name:Sripal
+####################################Company name is : RSTech
+####################################Employee name is : Sripal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         
