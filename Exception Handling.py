@@ -51,12 +51,27 @@
 
 # example-4 (using try except(multi errors) finally blocks)
 # multiple except
+# try:
+#     x = int(input("enter number:"))
+#     y = int(input("enter number:"))
+#     # a = int(input("enter number:"))
+#     z = x / y
+#     print(f"the div of {x} and {y} is {z}")
+# except (ZeroDivisionError, ValueError):
+#     print("number or data type error")
+# finally:
+#     print("code executed")
+
+
+# example-5
+
 try:
     x = int(input("enter number:"))
     y = int(input("enter number:"))
     # a = int(input("enter number:"))
     z = x / y
     print(f"the div of {x} and {y} is {z}")
-except (ZeroDivisionError, ValueError):
+except:
     print("number or data type error")
-
+finally:
+    print("code executed")
