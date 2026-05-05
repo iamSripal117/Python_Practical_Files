@@ -1,0 +1,11 @@
+INFO:root:Program execution started
+INFO:root:Entered to try block
+INFO:root:1st input was perfect
+INFO:root:2nd input was perfect
+INFO:root:2nd input was zero
+ERROR:root:Can't divide by zero
+Traceback (most recent call last):
+  File "C:\Users\Sridhar Rakkireddy\OneDrive\Desktop\Python Practical Files\python Logging.py", line 111, in <module>
+    raise ZeroDivisionError
+ZeroDivisionError
+INFO:root:Program execution finished
