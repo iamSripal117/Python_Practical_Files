@@ -1,20 +1,20 @@
 # Example-1
 # Without Synchronization
 
-# from threading import *
-# import time
-# def show(name):
-#     for i in range(3):
-#         if name == "sripal":
-#             print(name)
-#             time.sleep(1)
-#         else:
-#             print(name)
-#             time.sleep(1)
-# t1 = Thread(target=show, args=("sripal",))
-# t2 = Thread(target=show, args=("reddy",))
-# t1.start()
-# t2.start()
+from threading import *
+import time
+def show(name):
+    for i in range(3):
+        if name == "sripal":
+            print(name)
+            time.sleep(1)
+        else:
+            print(name)
+            time.sleep(1)
+t1 = Thread(target=show, args=("sripal",))
+t2 = Thread(target=show, args=("reddy",))
+t1.start()
+t2.start()
 
 # output
 # Cant predict the output
